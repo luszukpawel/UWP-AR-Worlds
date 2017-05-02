@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 1249649804
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: handgun
+      Dependencies: {}
+    Info_1:
+      Name: icecube
+      Dependencies: {}
