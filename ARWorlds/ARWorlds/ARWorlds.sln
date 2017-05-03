@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARWorlds", "ARWorlds.csproj", "{3923F0E1-0E2C-74BF-6F51-CBF86201AE67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARWorlds.Editor", "ARWorlds.Editor.csproj", "{9D956BDF-2D93-C1AB-0F25-7AE556CC7A56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{3923F0E1-0E2C-74BF-6F51-CBF86201AE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3923F0E1-0E2C-74BF-6F51-CBF86201AE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3923F0E1-0E2C-74BF-6F51-CBF86201AE67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D956BDF-2D93-C1AB-0F25-7AE556CC7A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D956BDF-2D93-C1AB-0F25-7AE556CC7A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D956BDF-2D93-C1AB-0F25-7AE556CC7A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D956BDF-2D93-C1AB-0F25-7AE556CC7A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
