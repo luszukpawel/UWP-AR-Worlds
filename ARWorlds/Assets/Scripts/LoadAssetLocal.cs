@@ -48,8 +48,8 @@ public class LoadAssetLocal : MonoBehaviour
 
             foreach (GameObject gameObject in assetLoadRequest)
             {
-                Instantiate(gameObject);
-                Debug.Log(gameObject.name + " Created");
+                GameObject newGameObject = Instantiate(gameObject);
+                newGameObject.gameObject.tag = "Model";
             }
         }
        

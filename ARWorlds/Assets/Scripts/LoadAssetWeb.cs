@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class LoadAssetWeb : MonoBehaviour
 {
     public List<string> assetBundleName = new List<string>();
 
-    public IEnumerator LoadAssets(string downloadString)
+    public IEnumerator Start()
     {
 
-        assetBundleName = downloadString.Split(',').ToList();
+        assetBundleName = AppVariables.CurrentModel.Split(',').ToList();
 
         foreach (string modelstring in assetBundleName)
         {
@@ -33,7 +34,11 @@ public class LoadAssetWeb : MonoBehaviour
 
                 foreach (GameObject g in assetLoadRequest)
                 {
-                    Instantiate(g);
+                  GameObject newGameObject = Instantiate(g);
+                    newGameObject.gameObject.tag = "Model";
+                    
+                    
+                   // g.AddComponent<>()
                     Debug.Log(gameObject.name + " Created");
                 }
             }
