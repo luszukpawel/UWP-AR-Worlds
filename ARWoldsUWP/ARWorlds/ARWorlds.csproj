@@ -157,12 +157,34 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Handler\Model3DHandler.cs" />
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModelSelection.xaml.cs">
       <DependentUpon>ModelSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\CurrentUser.cs" />
+    <Compile Include="PassportRegister.xaml.cs">
+      <DependentUpon>PassportRegister.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Provider\ApiProvider.cs" />
+    <Compile Include="UserSelection.xaml.cs">
+      <DependentUpon>UserSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\AccountHelper.cs" />
+    <Compile Include="Utils\MicrosoftPassportHelper.cs" />
+    <Compile Include="ViewModel\Commands\ChooseModelCommand.cs" />
     <Compile Include="ViewModel\Commands\MailCommand.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
+    <Page Include="LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -170,6 +192,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Content Include="Images\3dmodeling.png" />
     <Content Include="Resource.res">
     </Content>
     <Content Include="Assets\SplashScreen.scale-200.png">
@@ -192,6 +215,18 @@
     <Compile Include="UnityGenerated.cs">
     </Compile>
     <Page Include="ModelSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PassportRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -257,9 +292,7 @@
   <ItemGroup>
     <UnprocessedFile Include="$(ProjectDir)Unprocessed\*" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Handler\" />
-  </ItemGroup>
+  <ItemGroup />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -116,7 +116,7 @@ namespace ARWorlds
 #if !UNITY_HOLOGRAPHIC
                 Window.Current.Activate();
 #endif
-                rootFrame.Navigate(typeof(ModelSelection));
+                rootFrame.Navigate(typeof(LoginPage));
             }
 
             Window.Current.Activate();

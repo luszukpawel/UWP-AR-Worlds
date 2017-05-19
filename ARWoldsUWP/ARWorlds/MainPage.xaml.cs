@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ARWorlds.Utils;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 using UnityPlayer;
@@ -105,6 +106,12 @@ namespace ARWorlds
         {
             splash = (SplashScreen)e.Parameter;
             OnResize();
+        }
+        private async void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Load the local Accounts List before navigating to the UserSelection page
+            await AccountHelper.LoadAccountListAsync();
+            Frame.Navigate(typeof(UserSelection));
         }
 
         private void OnResize()

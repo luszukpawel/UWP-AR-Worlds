@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,13 +27,35 @@ namespace ARWorlds
         public ModelSelection()
         {
             this.InitializeComponent();
+            Loaded += ModelSelections_Loaded;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ModelSelections_Loaded(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate((typeof(MainPage)));
-            
+            Frame.Navigate(typeof(LoginPage));
         }
-    }
-    }
 
+        public void ToastNotification()
+        {
+            ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
+            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+
+            XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
+            toastTextElements[0].AppendChild(toastXml.CreateTextNode("xd"));
+            toastTextElements[0].AppendChild(toastXml.CreateTextNode("xt"));
+
+            XmlNodeList toastImageElements = toastXml.GetElementsByTagName("image");
+            ((XmlElement)toastImageElements[0]).SetAttribute("src", "C:\\Users\\pluszak\\Desktop\\pluszak\\Informatyka 2014-2017\\Universal Windows Platform\\ARWoldsUWP\\ARWorlds\\Images\\3dmodeling.png");
+
+
+            IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
+            ((XmlElement)toastNode).SetAttribute("duration", "long");
+
+            ToastNotification toast = new ToastNotification(toastXml);
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+
+        }
+
+
+    }
+}

@@ -19,6 +19,14 @@ namespace ARWorlds.Model
             }
         }
 
+        public Model3D(string _name)
+        {
+          
+                this.Name = _name;
+                this.Author = "pluszak";
+            
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string name;

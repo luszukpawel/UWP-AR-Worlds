@@ -8,6 +8,7 @@
     xmlns:viewModels="using:ARWorlds"
     xmlns:m="using:ARWorlds.Model"
     xmlns:vm="using:ARWorlds.ViewModel"
+    xmlns:behaviours="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -24,7 +25,7 @@
                         <AdaptiveTrigger MinWindowHeight="500" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="lista.Visibility" Value="Visible"/>
+                        <!--<Setter Target="lista.Visibility" Value="Visible"/>-->
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -41,21 +42,19 @@
         </VisualStateManager.VisualStateGroups>
         <PivotItem Header="3D Models List" Background="#336699">
             <Grid DataContext="{Binding Source={StaticResource model3D}}">
-                <!--<ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedStation, Mode=TwoWay}">-->
-                <!--<ListView.ItemTemplate>-->
-                <!--<DataTemplate>-->
-                <Grid>
-                    <!-- <TextBlock Text="{Binding StationName}" FontSize="20"/> -->
-                    <TextBlock Text="{Binding Name, Mode=TwoWay}"/>
-                </Grid>
-                <Button Content="Add New Model" HorizontalAlignment="Left" Margin="375,-43,0,0" VerticalAlignment="Top" Width="241" Height="38" Command="{Binding MailCommand, Source={StaticResource ViewModel}}" />
-                <!--</DataTemplate>-->
-                <!--</ListView.ItemTemplate>-->
-                <!--</ListView>-->
-                <!--<ProgressRing IsActive="{Binding isBusy}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="140" Width="140"/>-->
+                <ListView DataContext="{Binding Source={StaticResource ViewModel}}" ItemsSource="{Binding}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button Content="{Binding Name}" HorizontalAlignment="Left" Margin="271,-37,0,0" VerticalAlignment="Top" Command="{Binding ChooseModelCommand, Source={StaticResource ViewModel}}" CommandParameter="{Binding Name}" />
+                                <!--<TextBlock Text="{Binding Name}" FontSize="20"/>-->
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--<Button Content="Button" HorizontalAlignment="Left" Margin="271,-37,0,0" VerticalAlignment="Top" Command="{Binding MailCommand, Source={StaticResource ViewModel}}" />-->
             </Grid>
         </PivotItem>
-
     </Pivot>
 </Page>
 
